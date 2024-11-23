@@ -50,13 +50,25 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
-     }, //{
-    //     browserName: 'firefox'
-    // }, 
-    // {
-    //     browserName: 'MicrosoftEdge'
+        browserName: 'chrome',
+    //     'goog:chromeOptions': {
+    //   args: ['--headless']
     // }
+
+     }, 
+    //  {
+    //     browserName: 'firefox',
+    // 'moz:firefoxOptions': {
+    //     args: ['-headless']
+    // }
+    //  }, 
+    //  {
+    //      browserName: 'MicrosoftEdge',
+    //      'ms:edgeOptions': {
+    //   args: ['--headless']
+    // }
+
+    //  }
     ],
 
     //
