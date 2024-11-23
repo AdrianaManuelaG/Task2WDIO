@@ -1,0 +1,19 @@
+{
+  "name": "task2wdio",
+  "version": "1.0.0",
+  "description": "Homework",
+  "main": "index.js",
+  "scripts": {
+    "wdio": "wdio run wdio.conf.js"
+  },
+  "author": "Gula Adriana",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.2.14",
+    "@wdio/cli": "^9.3.0",
+    "@wdio/dot-reporter": "^9.2.14",
+    "@wdio/local-runner": "^9.3.0",
+    "@wdio/mocha-framework": "^9.2.8",
+    "@wdio/spec-reporter": "^9.2.14"
+  }
+}

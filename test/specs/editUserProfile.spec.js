@@ -1,0 +1,24 @@
+describe("editUserProfile", () => {
+    it("User successfully Login on Trello", async() => {
+        await browser.url("https://trello.com/");
+        await $(".Buttonsstyles__Button-sc-1jwidxo-0").click();
+        await $("#username").setValue("adrianagula25@gmail.com");
+        await $(".css-t8mx7z").click();
+        await $("#password").setValue("Adrianagula2024!");
+        await $("#login-submit").click();
+        await browser.waitUntil(() => browser.getUrl().then(url => url.includes("/boards")), {
+            timeout: 10000,
+        });   
+    });
+
+    it("change user name", async () =>{
+        await $(".DweEFaF5owOe02").click();
+        await $('a[data-testid="account-menu-profile"]').click();
+        await browser.pause(5000);
+        const newUsername = `user_${Math.floor(Math.random() * 100000)}`;
+        await $("#username").setValue(newUsername);
+        await $(".JhBc38JIAKzHAt ").click();
+        await expect($(".QMKgZFIlTLiEJN")).toBeDisplayed();
+    });
+
+});
