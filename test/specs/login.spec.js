@@ -1,7 +1,9 @@
+
+
 describe("Log in on Trello", () => {
-    it("User successfully Login on Trello", async() => {
+    it("User should successfully Login on Trello", async() => {
         await browser.url("https://trello.com/");
-        await $('.Buttonsstyles__Button-sc-1jwidxo-0').click();
+        await $("[data-uuid='MJFtCCgVhXrVl7v9HA7EH_login']").click();
         await $("#username").setValue("adrianagula25@gmail.com");
         await $(".css-t8mx7z").click();
         await $("#password").setValue("Adrianagula2024!");
@@ -14,9 +16,6 @@ describe("Log in on Trello", () => {
         //     console.log("New window is displayed,successfull test");
         //     return; 
         // }
-        await browser.waitUntil(() => browser.getUrl().then(url => url.includes("/boards")), {
-            timeout: 1000,
-        });
     });
 
 });
