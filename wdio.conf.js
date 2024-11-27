@@ -49,8 +49,9 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome',
+    capabilities: [
+    {
+       browserName: 'chrome'
     //     'goog:chromeOptions': {
     //   args: ['--headless']
     // }
@@ -203,8 +204,8 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    //  before: function (capabilities, specs) {
+    //  },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

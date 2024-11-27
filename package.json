@@ -14,6 +14,11 @@
     "@wdio/dot-reporter": "^9.2.14",
     "@wdio/local-runner": "^9.3.0",
     "@wdio/mocha-framework": "^9.2.8",
-    "@wdio/spec-reporter": "^9.2.14"
+    "@wdio/spec-reporter": "^9.2.14",
+    "chai": "*",
+    "mocha": "*"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
