@@ -4,7 +4,10 @@
   "description": "Homework",
   "main": "index.js",
   "scripts": {
-    "wdio": "wdio run wdio.conf.js"
+    "wdio": "wdio run wdio.conf.js",
+    "wdio-chrome": "wdio run wdio.chrome.conf.js",
+    "wdio-edge": "wdio run wdio.edge.conf.js",
+    "wdio-multi": "wdio run wdio.multi.conf.js"
   },
   "author": "Gula Adriana",
   "license": "ISC",
