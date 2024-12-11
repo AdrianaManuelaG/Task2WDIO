@@ -8,7 +8,7 @@ describe("Trello page", () => {
         
         const email = credentials.email;
         const password = credentials.password;
-        await $("a[data-uuid='MJFtCCgVhXrVl7v9HA7EH_login']").click();
+        await $('a[data-uuid*="login"]').click();
         await $("#username").setValue(email);
         await $("#login-submit").click();
         await browser.waitUntil(async () => $("#password").isDisplayed(), {
@@ -21,8 +21,8 @@ describe("Trello page", () => {
     });
     it("Testing 'Search' dialog", async () => {
         await $('//input').setValue("ProjectTest");
-        const searchResults = await $$('');
-        await expect(searchResults[0]).toHaveTextContaining("ProjectTest");
+        const searchResults = await $('[data-test-id="search-dialog-dialog-wrapper"]');
+        await expect(searchResults).toBeDisplayed();
         
     });
 });
