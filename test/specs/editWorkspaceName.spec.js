@@ -1,4 +1,5 @@
-const credentials = require('../../credentials.json');
+import { expect, assert } from 'chai';
+import credentials from '../../credentials.json' assert { type: 'json' };
 
 describe("Trello page", () => {
     it("Open Trello page" , async () => {
@@ -7,16 +8,16 @@ describe("Trello page", () => {
     it("Login on Trello", async () => {
         const email = credentials.email;
         const password = credentials.password;
-        await $("//*[text()='Log in']").click();
+        await $('a[data-uuid*="login"]').click();
         await $("#username").setValue(email);
         await $("#login-submit").click();
         await browser.waitUntil(async () => $("#password").isDisplayed(), {
-            timeout: 5000,
-            timeoutMsg: "Password field not displayed"
+            timeout: 5000
         });
         await $("#password").setValue(password);
         await $("#login-submit").click();
-        await expect($('[data-testid="header-member-menu-button"]')).toBeDisplayed();
+        const currentUrl = await browser.getUrl();
+        expect(currentUrl).to.include("/boards");
     });
 
     
@@ -27,7 +28,8 @@ describe("Trello page", () => {
         const newName = 'test';
         await $('#displayName').setValue(newName);
         await $('._wJD3QSFJjW4Pb ').click();
-        await expect($('#displayName')).toHaveValue(newName);
+        const displayName = await $('#displayName').getValue();
+        assert.equal(displayName, newName, "Workspace name is changed!");
     });
 
 });

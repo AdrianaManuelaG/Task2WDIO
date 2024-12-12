@@ -1,8 +1,11 @@
-const credentials = require('../../credentials.json');
+import { expect, assert } from 'chai';
+import credentials from '../../credentials.json' assert { type: 'json' };
 
 describe("Trello page", () => {
     it("Open Trello page", async () => {
         await browser.url("https://trello.com");
+        const title = await browser.getTitle();
+        expect(title).to.include("Trello", "Title should contain 'Trello'");
     })
     it("Login on Trello", async () => {
         const email = credentials.email;
@@ -11,12 +14,12 @@ describe("Trello page", () => {
         await $("#username").setValue(email);
         await $("#login-submit").click();
         await browser.waitUntil(async () => $("#password").isDisplayed(), {
-            timeout: 5000,
-            timeoutMsg: "Password field not displayed"
+            timeout: 5000
         });
         await $("#password").setValue(password);
         await $("#login-submit").click();
-        await expect($('[data-testid="header-member-menu-button"]')).toBeDisplayed();
+        const userMenuButton = await $('[data-testid="header-member-menu-button"]');
+        expect(await userMenuButton.isDisplayed()).to.be.true;
     });
 
     it("Change user name", async () => {
@@ -25,7 +28,8 @@ describe("Trello page", () => {
         const newUsername = `user_${Math.floor(Math.random() * 100000)}`;
         await $("#username").setValue(newUsername);
         await $(".JhBc38JIAKzHAt ").click();
-        await expect($('.QMKgZFIlTLiEJN')).toHaveTextContaining('Saved');
-        console.log("Username successfully updated");
+        const successMessage = await $('.QMKgZFIlTLiEJN');
+        expect(await successMessage.getText()).to.include('Saved', "The username change should be saved");
+        assert.isNotEmpty(newUsername, "New username should not be empty");
     });
 });
