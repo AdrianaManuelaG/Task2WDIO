@@ -1,19 +1,37 @@
-Second task What should be done *
+What should be done
+*
+For this practical task, the result of the previous module should be used.
 
-Walk through the provided materials (official documentation, video) to understand how WDIO works and the main benefits of the tool.
+Take your set up test automation framework and improve it by applying knowledge from this module. Refactor automated tests created in the previous module based on Page object pattern and follow DRY, KISS, YAGNI principles (other design patterns can be used as well)
 
-Create an initial setup of WDIO on the local machine
+The solution should be split into next layers:
 
-Create WDIO config if it does not exist and familiarize
+1. Core layer (core functionality of TAF, that isn’t project specific).
 
-Create first specs using the existing BDD scenario created in Module 1
+2. Business layer (should contain all functionality, related with business logic of the tested application)
 
-Execute these tests using CLI in different browsers (Chrome, Firefox, Safari) in headless mode
+3. Tests layer (should contain automated tests, TAF configuration)
 
-Execute tests in parallel using 2 instances
+4. Push the code to remote repository and create Merge Request
 
-Add the option to run tests 2 times before marking it as failed
+﻿
 
-Push the code to remote repository and create Merge Request
+Assessment criteria (pass rate is 70%)
 
-Run the tests with this command: npm run wdio
+Here’s the list of actions which result in reduction of overall mark for a completed task:
+
+1. Layered architecture is not implemented (-40%)
+
+2. Page Object pattern is not used (-30%)
+
+3. Logical issues/not optimal approach (-10%)
+
+4. Code smells (naming convention, typos) (-1% per issue)
+
+5. OOP principles violations (-3% per issue)
+
+6. Code duplication is found (-3% per issue)
+
+
+
+

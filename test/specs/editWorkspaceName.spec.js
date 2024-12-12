@@ -1,33 +1,24 @@
 const credentials = require('../../credentials.json');
+const LoginPage = require('../pageObjects/LoginPage');
+const WorkspacePage = require('../pageObjects/WorkspacePage');
+const loginPage = new LoginPage();
+const workspacePage = new WorkspacePage();
 
 describe("Trello page", () => {
-    it("Open Trello page" , async () => {
-        await browser.url("https://trello.com");
-    });
     it("Login on Trello", async () => {
-        const email = credentials.email;
-        const password = credentials.password;
-        await $("//*[text()='Log in']").click();
-        await $("#username").setValue(email);
-        await $("#login-submit").click();
-        await browser.waitUntil(async () => $("#password").isDisplayed(), {
-            timeout: 5000,
-            timeoutMsg: "Password field not displayed"
-        });
-        await $("#password").setValue(password);
-        await $("#login-submit").click();
-        await expect($('[data-testid="header-member-menu-button"]')).toBeDisplayed();
+        await loginPage.open('./');
+        await loginPage.login(credentials.email, credentials.password);
+        const memberButton = await $('[data-testid="header-member-menu-button"]');
+        expect(await memberButton.isDisplayed());
     });
 
     
     it("Edit the workspace name", async () => {
-        await $('[data-testid=workspace-switcher]').click();
-        await $('[data-testid="workspace-switcher-popover-tile"]').click();
-        await $('[data-testid="EditIcon"]').click();
+        await workspacePage.openWorkspace(); // Deschide workspace-ul
         const newName = 'test';
-        await $('#displayName').setValue(newName);
-        await $('._wJD3QSFJjW4Pb ').click();
-        await expect($('#displayName')).toHaveValue(newName);
+        await workspacePage.editWorkspaceName(newName); // Modifică numele workspace-ului
+        const workspaceName = await workspacePage.getWorkspaceName(); // Obține numele workspace-ului
+        expect(workspaceName).toBe(newName); 
     });
 
 });
