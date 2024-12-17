@@ -1,11 +1,10 @@
-import { expect } from 'chai';
 import credentials from '../../credentials.json' assert { type: 'json' };
 
 describe("Trello page", () => {
     it("Open Trello page", async () => {
         await browser.url("https://trello.com");
         const title = await browser.getTitle();
-        expect(title).to.include("Trello");
+        expect(title).to.include("Trello", "Title should contain 'Trello' word");
     })
     it("Login on Trello", async () => {
         const email = credentials.email;

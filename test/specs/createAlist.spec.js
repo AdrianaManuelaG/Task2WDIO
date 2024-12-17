@@ -1,4 +1,3 @@
-import { expect, assert, should } from 'chai';
 import credentials from '../../credentials.json' assert { type: 'json' };
 should();
 describe("Trello page", () => {

@@ -1,4 +1,4 @@
-import { expect, assert } from 'chai';
+
 import credentials from '../../credentials.json' assert { type: 'json' };
 
 describe("Trello page", () => {
@@ -29,7 +29,7 @@ describe("Trello page", () => {
         await $('#displayName').setValue(newName);
         await $('._wJD3QSFJjW4Pb ').click();
         const displayName = await $('#displayName').getValue();
-        assert.equal(displayName, newName, "Workspace name is changed!");
+        assert.equal(displayName, newName, "Workspace should be changed");
     });
 
 });

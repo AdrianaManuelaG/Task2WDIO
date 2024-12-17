@@ -1,6 +1,5 @@
-import { expect, assert } from 'chai';
-import credentials from '../../credentials.json' assert { type: 'json' };
 
+import credentials from '../../credentials.json' assert { type: "json" };
 describe("Trello page", () => {
     it("Open Trello page", async () => {
         await browser.url("https://trello.com");
@@ -18,6 +17,7 @@ describe("Trello page", () => {
         });
         await $("#password").setValue(password);
         await $("#login-submit").click();
+        await browser.pause(3000);
         const userMenuButton = await $('[data-testid="header-member-menu-button"]');
         expect(await userMenuButton.isDisplayed()).to.be.true;
     });
@@ -25,11 +25,12 @@ describe("Trello page", () => {
     it("Change user name", async () => {
         await $(".DweEFaF5owOe02").click();
         await $('a[data-testid="account-menu-profile"]').click();
+        await browser.pause(3000);
         const newUsername = `user_${Math.floor(Math.random() * 100000)}`;
         await $("#username").setValue(newUsername);
         await $(".JhBc38JIAKzHAt ").click();
         const successMessage = await $('.QMKgZFIlTLiEJN');
-        expect(await successMessage.getText()).to.include('Saved', "The username change should be saved");
-        assert.isNotEmpty(newUsername, "New username should not be empty");
+        expect(await successMessage.getText()).to.include('Saved', "Pop-up window with 'Saved' message is displayed!");
+        assert.isNotEmpty(newUsername, "New user name is changed!");
     });
 });

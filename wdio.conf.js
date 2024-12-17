@@ -312,4 +312,11 @@ export const config = {
     */
     // afterAssertion: function(params) {
     // }
+
+    before: function (capabilities, specs){
+        const chai = require('chai');
+        global.expect = chai.expect;
+        global.assert = chai.assert;
+        chai.should();
+    }
 }
