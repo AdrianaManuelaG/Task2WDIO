@@ -2,7 +2,7 @@
   "name": "task2wdio",
 
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ../config/wdio.conf.js"
   },
   "dependencies": {
     "@wdio/allure-reporter": "^8.16.22",

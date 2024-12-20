@@ -1,6 +1,6 @@
 const credentials = require('../../credentials.json');
-const LoginPage = require('../pageObjects/LoginPage');
-const BoardsPage = require('../pageObjects/BoardsPage');
+const LoginPage = require('../../pageObjects/LoginPage');
+const BoardsPage = require('../../pageObjects/BoardsPage');
 
 const loginPage = new LoginPage();
 const boardsPage = new BoardsPage();
@@ -10,8 +10,6 @@ describe("Trello page", () => {
     it("Login on Trello", async () => {
         await loginPage.open('./');
         await loginPage.login(credentials.email, credentials.password);
-        const memberButton = await $('[data-testid="header-member-menu-button"]');
-        expect(await memberButton.isDisplayed());
     });
 
     it("Create a board", async () => {

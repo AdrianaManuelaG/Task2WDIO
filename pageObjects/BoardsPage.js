@@ -25,12 +25,11 @@ class BoardsPage extends BasePage {
     }
 
     async createList(listName) {
-        await this.listComposerButton.click();  // Apasă pe butonul pentru a crea o listă
-        await this.listNameTextarea.setValue(listName);  // Setează numele listei
-        await this.listAddButton.click();  // Apasă pe butonul pentru a adăuga lista
+        await this.listComposerButton.click();  
+        await this.listNameTextarea.setValue(listName); 
+        await this.listAddButton.click();  
     }
 
-    // Metodă pentru a verifica dacă lista a fost adăugată corect
     async getListTitle(index) {
         const listTitles = await this.listTitles;
         return await listTitles[index].getText(); 
