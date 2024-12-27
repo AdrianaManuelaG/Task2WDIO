@@ -1,5 +1,5 @@
 
-const BasePage = require('./BasePage'); 
+const BasePage = require('./basePage'); 
 
 class SearchPage extends BasePage {
     get searchInput() { return $('//input'); }

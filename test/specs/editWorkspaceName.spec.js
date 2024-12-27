@@ -7,7 +7,7 @@ const loginPage = new LoginPage();
 const workspacePage = new WorkspacePage();
 
 describe("Trello page", () => {
-    it("Login on Trello", async () => {
+    before("Login on Trello", async () => {
         await loginPage.open('./');
         await loginPage.login(credentials.email, credentials.password);
     });

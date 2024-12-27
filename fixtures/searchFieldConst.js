@@ -1,0 +1,1 @@
+export const SEARCH_FIELD_QUERY = "ProjectTest";

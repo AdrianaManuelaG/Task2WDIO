@@ -12,15 +12,8 @@ describe("Trello page", () => {
     });
     it("Create a list", async () => {
         const listName = "TO DO"; 
-        await $("a=Boards").click();
-        await browser.waitUntil(async () => {
-            return (await browser.getUrl()).includes('/boards');
-        }, {
-            timeout: 15000,
-        });
-        const listItems = $$("ul.boards-page-board-section-list li.boards-page-board-section-list-item");
-        await browser.waitUntil(async () => (await listItems).length > 0, { timeout: 5000 });
-        await listItems[0].click();  
+        await boards.navigateToBoardsPage();
+        await boardsPage.clickFirstBoard();   
         await boardsPage.createList(listName);  
         const createdListTitle = await boardsPage.getListTitle(0); 
         expect(createdListTitle).toBe(listName)

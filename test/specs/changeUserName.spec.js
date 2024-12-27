@@ -6,20 +6,16 @@ const loginPage = new LoginPage();
 const profilePage = new ProfilePage();
 
 describe("Trello page", () => {
-    it("Login on Trello", async () => {
-       await loginPage.open('./');
+    before("Login on Trello", async () => {
+        await loginPage.open('./');
         await loginPage.login(credentials.email, credentials.password);
     });
 
     it("Change user name", async () => {
-        await $(".DweEFaF5owOe02").click();
-        await $('a[data-testid="account-menu-profile"]').click();
-
+        await profilePage.navigateToProfile(); 
         const newUsername = `user_${Math.floor(Math.random() * 100000)}`; 
         await profilePage.changeUsername(newUsername); 
-
         const confirmationMessage = await profilePage.getConfirmationMessage(); 
         expect(confirmationMessage).toContain('Saved');
-        console.log("Username successfully updated");
     });
 });

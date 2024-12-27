@@ -1,5 +1,5 @@
 
-const BasePage = require('./BasePage'); 
+const BasePage = require('./basePage'); 
 
 class BoardsPage extends BasePage {
     get createMenuButton() { return $('[data-testid="header-create-menu-button"]'); }
@@ -12,6 +12,9 @@ class BoardsPage extends BasePage {
     get listNameTextarea() { return $('[data-testid="list-name-textarea"]'); }
     get listAddButton() { return $('[data-testid="list-composer-add-list-button"]'); }
     get listTitles() { return $$('[data-testid="list-name"]'); }
+    get listItems() {
+        return $$("ul.boards-page-board-section-list li.boards-page-board-section-list-item");
+    }
 
     async createBoard(boardName) {
         await this.createMenuButton.click();
@@ -34,6 +37,25 @@ class BoardsPage extends BasePage {
         const listTitles = await this.listTitles;
         return await listTitles[index].getText(); 
     }
+
+    async navigateToBoardsPage() {
+        await boards.navigateToBoardsPage(); 
+        await browser.waitUntil(async () => {
+            return (await browser.getUrl()).includes('/boards');
+        }, {
+            timeout: 15000
+        });
+    }
+
+
+    async clickFirstBoard() {
+        await browser.waitUntil(async () => (await this.listItems).length > 0, {
+            timeout: 5000,
+            timeoutMsg: "Boards list did not load in time"
+        });
+        await this.listItems[0].click();
+    }
+
 }
 
 module.exports = BoardsPage;

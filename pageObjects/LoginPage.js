@@ -1,4 +1,4 @@
-const BasePage = require('./BasePage');
+const BasePage = require('./basePage');
 
 class LoginPage extends BasePage {
     get loginButton() { return $('a[data-uuid="MJFtCCgVhXrVl7v9HA7EH_login"]'); }

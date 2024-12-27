@@ -1,4 +1,4 @@
-const BasePage = require('./BasePage'); 
+const BasePage = require('./basePage'); 
 
 class WorkspacePage extends BasePage {
     get workspaceSwitcherButton() { return $('[data-testid=workspace-switcher]'); }
