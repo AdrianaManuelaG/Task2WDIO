@@ -1,3 +1,4 @@
+
 const credentials = require('../../credentials.json');
 const LoginPage = require('../../pageObjects/LoginPage');
 const loginPage = new LoginPage();
