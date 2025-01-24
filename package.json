@@ -1,10 +1,13 @@
 {
   "name": "task2wdio",
-
   "scripts": {
     "wdio": "wdio run wdio.conf.js",
     "allure:generate": "allure generate allure-results --clean",
-    "allure:open": "allure open"
+    "allure:open": "allure open",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "check:format": "prettier --check ."
   },
   "dependencies": {
     "@wdio/allure-reporter": "^8.16.22",
@@ -16,5 +19,10 @@
     "@wdio/spec-reporter": "^8.16.22",
     "geckodriver": "^5.0.0",
     "playwright": "^1.49.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "prettier": "3.4.2"
   }
 }
