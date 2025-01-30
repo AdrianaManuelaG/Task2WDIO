@@ -1,0 +1,33 @@
+name: Linting
+
+on:
+  push:
+    branches:
+      - main
+      - feature/implement-linter   
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linting:
+    name: Run Linters (ESLint & Prettier)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Prettier check
+        run: npm run check:format
+
+      - name: Run ESLint
+        run: npm run lint
