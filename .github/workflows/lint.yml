@@ -3,7 +3,6 @@ name: Linting
 on:
   push:
     branches:
-      - main
       - feature/implement-linter   
   pull_request:
     branches:
