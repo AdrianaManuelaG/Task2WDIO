@@ -6,7 +6,7 @@ on:
       - feature/implement-linter   
   pull_request:
     branches:
-      - main
+      - feature/implement-linter  
 
 jobs:
   linting:
