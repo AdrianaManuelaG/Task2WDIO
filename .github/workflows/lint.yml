@@ -3,11 +3,10 @@ name: Linting
 on:
   push:
     branches:
-      - main
-      - feature/implement-linter   
+      - Implement_husky  
   pull_request:
     branches:
-      - main
+      - Implement_husky
 
 jobs:
   linting:
