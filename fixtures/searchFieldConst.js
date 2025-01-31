@@ -1,1 +1,1 @@
-export const SEARCH_FIELD_QUERY = "ProjectTest";
+export const SEARCH_FIELD_QUERY = 'ProjectTest';

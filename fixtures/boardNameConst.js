@@ -1,1 +1,1 @@
-export const BOARD_NAME = "ProjectTest";
+export const BOARD_NAME = 'ProjectTest';
