@@ -8,7 +8,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "check:format": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:ui": "wdio wdio.conf.js --cucumberOpts.tagExpression='@smoke'"
   },
   "lint-staged": {
     "*.{js,mjs}": [
@@ -20,7 +21,6 @@
     ]
   },
   "dependencies": {
-    "@wdio/allure-reporter": "^8.16.22",
     "@wdio/browserstack-service": "^8.16.22",
     "@wdio/cli": "^8.16.22",
     "@wdio/devtools-service": "^8.16.22",
@@ -34,6 +34,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
+    "@wdio/allure-reporter": "^9.6.3",
+    "@wdio/cucumber-framework": "^9.7.2",
     "eslint": "^9.19.0",
     "eslint-plugin-wdio": "^9.6.0",
     "husky": "^9.1.7",
