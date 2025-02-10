@@ -1,17 +1,10 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
-const credentials = require('../../credentials.json');
-const LoginPage = require('../../pageObjects/LoginPage');
+const { When, Then } = require('@wdio/cucumber-framework');
 const ProfilePage = require('../../pageObjects/ProfilePage');
 const { expect } = require('@wdio/globals');
 
-const loginPage = new LoginPage();
 const profilePage = new ProfilePage();
 let newUsername;
 
-Given('I am logged into Trello', async () => {
-  await loginPage.open('./');
-  await loginPage.login(credentials.email, credentials.password);
-});
 
 When('I navigate to the profile page', async () => {
   await profilePage.navigateToProfile();

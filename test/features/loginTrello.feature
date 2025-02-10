@@ -3,6 +3,8 @@
 Feature: Trello Login
 
 Scenario: Succesful login to Trello
-    Given I am on Trello login page
+    Given I am on the Trello login page
     When I enter valid Trello credentials
     Then I should be successfully logged in
+
+   

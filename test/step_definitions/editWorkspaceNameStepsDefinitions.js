@@ -1,17 +1,10 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
+const { When, Then } = require('@wdio/cucumber-framework');
 const { CHANGE_WORKSPACE_NAME } = require('../../fixtures/workspaceConst');
-const credentials = require('../../credentials.json');
-const LoginPage = require('../../pageObjects/LoginPage');
 const WorkspacePage = require('../../pageObjects/WorkspacePage');
 const { expect } = require('@wdio/globals');
 
-const loginPage = new LoginPage();
-const workspacePage = new WorkspacePage();
 
-Given('I am logged into Trello', async () => {
-  await loginPage.open('./');
-  await loginPage.login(credentials.email, credentials.password);
-});
+const workspacePage = new WorkspacePage();
 
 When('I navigate to the workspace settings', async () => {
   await workspacePage.openWorkspace();
