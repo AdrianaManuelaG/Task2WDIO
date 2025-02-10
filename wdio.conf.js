@@ -148,9 +148,9 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     cucumberOpts: {
-        require: ['./features/step_definitions/*.js'], // Path to step definitions
-        tagExpression: '@smoke', // Run tests with this tag
-        timeout: 60000,
+        require: ['./test/step_definitions/*.js'], // Path to step definitions
+        tagExpression: '', // Run tests with this tag
+        timeout: 60000
       },
 
     //

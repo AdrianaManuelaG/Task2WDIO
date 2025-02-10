@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "check:format": "prettier --check .",
     "prepare": "husky",
-    "test:ui": "wdio wdio.conf.js --cucumberOpts.tagExpression='@smoke'"
+    "test:smoke": "wdio wdio.conf.js --cucumberOpts.tagExpression='@smoke'"
   },
   "lint-staged": {
     "*.{js,mjs}": [
