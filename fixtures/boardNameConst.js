@@ -1,1 +1,3 @@
-export const BOARD_NAME = 'ProjectTest';
+const BOARD_NAME = 'ProjectTest';
+
+module.exports = BOARD_NAME;

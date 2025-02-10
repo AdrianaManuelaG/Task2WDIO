@@ -1,1 +1,3 @@
-export const CHANGE_WORKSPACE_NAME = 'test';
+const CHANGE_WORKSPACE_NAME = 'test';
+
+module.exports = CHANGE_WORKSPACE_NAME;
